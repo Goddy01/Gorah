@@ -30,9 +30,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'gorah.onrender.com',
+]
 
 
 # Application definition
@@ -149,19 +151,29 @@ DEFAULT_FROM_EMAIL = 'Gorah <noreply@refnet.io>'
 EMAIL_TIMEOUT = 30  # Increase the timeout value
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://localhost:8000'  # React app URL
-]
 
-CORS_ORIGIN_WHITELIST = [
+if DEBUG:
+    CORS_ALLOWED_ORIGINS = [
+        'http://localhost:5173',
+        'http://localhost:8000'  # React app URL
+    ]
+    CSRF_TRUSTED_ORIGINS = [
+        'http://localhost:5173',
+    ]
+    CORS_ORIGIN_WHITELIST = [
 
-     'http://localhost:5173',
+        'http://localhost:5173',
+    ]
+else:
+    CORS_ALLOWED_ORIGINS = [
+        'https://gorah.onrender.com',
+    ]
+    CSRF_TRUSTED_ORIGINS = [
+        'https://gorah.onrender.com',
+    ]
+    CORS_ORIGIN_WHITELIST = [
 
-]
-
+        'https://gorah.onrender.com',
+    ]
 CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access to the CSRF token (optional)
 CSRF_COOKIE_SAMESITE = 'Lax'  # Prevent CSRF attacks from other sites
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:5173',
-]
