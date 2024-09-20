@@ -14,9 +14,6 @@ import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
 import os
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
 
 
 load_dotenv(find_dotenv())
