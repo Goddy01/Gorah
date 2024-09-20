@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'gorah.onrender.com',
+    'https://9d5e436d-0dee-4787-b4de-b1ac23ef55e9.e1-us-cdp-2.choreoapps.dev/',
 ]
 
 
@@ -172,14 +172,14 @@ if DEBUG:
     ]
 else:
     CORS_ALLOWED_ORIGINS = [
-        'https://gorah.onrender.com',
+        'https://9d5e436d-0dee-4787-b4de-b1ac23ef55e9.e1-us-cdp-2.choreoapps.dev/',
     ]
     CSRF_TRUSTED_ORIGINS = [
-        'https://gorah.onrender.com',
+        'https://9d5e436d-0dee-4787-b4de-b1ac23ef55e9.e1-us-cdp-2.choreoapps.dev/',
     ]
     CORS_ORIGIN_WHITELIST = [
 
-        'https://gorah.onrender.com',
+        'https://9d5e436d-0dee-4787-b4de-b1ac23ef55e9.e1-us-cdp-2.choreoapps.dev/',
     ]
 CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access to the CSRF token (optional)
 CSRF_COOKIE_SAMESITE = 'Lax'  # Prevent CSRF attacks from other sites
